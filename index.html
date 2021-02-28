@@ -9,7 +9,7 @@
 <body>
 
     <script>
-
+/* 
         //Q1 a.
         function printMsg() {
 
@@ -92,6 +92,8 @@
         getValue().then(function (value) {
             document.write(value);
         }); 
+
+ */
 
         //developed code
         /* function getValue() {
@@ -193,13 +195,27 @@ persons.print();
         this.VehicleCount = this.VehicleCount + 1;
     }
 
-    Vehicle.VehicleCount = 0;
+    Vehicle.prototype.VehicleCount = 0;
 
     Vehicle.prototype.drive = function() {
         console.log(this.type + ' is driving');
     }
 
-    let car = new Vehicle('Car');
+    function Car(type) {
+        Vehicle.call(this, type);
+    }
+
+    Car.prototype = Object.create(Vehicle.prototype);
+    Car.prototype.constructor = Car;
+
+    Car.prototype.balanceWheels = function() {
+        console.log('Wheels are balanced');
+    }
+
+    let vehicle = new Car('Car');
+    vehicle.drive();
+    vehicle.balanceWheels();
+    console.log(vehicle.VehicleCount);
 
 
     </script>
