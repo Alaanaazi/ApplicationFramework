@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    
+    <script>
+
+        //exercise 1
+
+        let x = function printHello() {
+            console.log('Hello world');
+            return 'Arosh'
+        }
+
+        let y = function greetings(name) {
+            console.log('Hello ' + name);
+        }
+
+        x();
+        y(x()); 
+
+        //exercise 2
+        students = {
+            name : 'Tony',
+            age : 13,
+            printHello: function() {
+                console.log('Hello world');
+            }
+        }
+
+        students.printHello(); 
+
+        //exercise 3
+        window.vehicleName = 'Car';
+
+        function printVehicleName() {
+            console.log('This is a ' + vehicleName );
+        }
+        printVehicleName();
+
+        Vehicle ={
+            vehicleName: 'Honda',
+            getVehicleName: function() {
+                console.log('The name of car ' + this.vehicleName ); //Vehicle.vehicleName
+            }
+        }
+
+        Vehicle.getVehicleName(); 
+
+        //exercise 4
+        taxPercentage = 0.3;
+
+        let tax = (function() {
+            let amount = 1000;
+            let taxPercentage = 0.2;
+
+            return function() {
+                amount = amount + (amount * this.taxPercentage);
+                return amount;
+            }
+
+        }
+)();
+        console.log(tax());
+
+    </script>
+
+</body>
+</html>
