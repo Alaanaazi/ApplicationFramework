@@ -5,7 +5,7 @@ console.log('Hello World');
 //console.error('Something went wrong');
 
 //Question 02
-console.log('Architecture ' + os.arch());
+ console.log('Architecture ' + os.arch());
 
 console.log('CPUs ' + os.cpus().length);
 
@@ -19,18 +19,20 @@ console.log('OS ' + os.homedir());
 
 console.log('OS ' + os.freemem());
 
-console.log('OS ' + os.userInfo());
+console.log('OS ' + os.userInfo()); 
 
 //Question 03
  const fs = require('fs');
 
 const filename = __dirname + '/test.txt';
 
-fs.readFile(filename, (err, data) => {
+fs.readFile(filename,"utf8", (err, data) => {
     if (err) {
         console.error(err);
     }
-    console.log(data.toString());
+    //console.log(data.toString());
+    //Printing data without to string method
+     console.log(data);
 }); 
 
 
@@ -53,7 +55,7 @@ const writeStream = fs.createWriteStream(outFileNames);
 
 writeStream.addListener('close', () => {
     console.log('End of file write');
-    console.log(fs.readFileSync('test-copy.txt'));
+    console.log(fs.readFileSync('test-copy.txt').toString());
 }); 
 
 readStream.pipe(writeStream); 
