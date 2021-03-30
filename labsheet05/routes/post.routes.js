@@ -6,7 +6,7 @@ const router = new Router({
    });
    router.get('/', ctx => {
     ctx.body = getPosts();
-   });
+   }); 
    router.post('/', ctx => {
     let post = ctx.request.body;
     post = createPost(post);
