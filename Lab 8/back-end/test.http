@@ -1,0 +1,7 @@
+POST http://localhost:3000/posts/7ab18839-0206-459b-b19b-cffa9bb33947
+Content-Type: application/json
+
+{
+    "name" : "arosh45",
+    "description" : "updated decription 45"
+}
