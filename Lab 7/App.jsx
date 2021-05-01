@@ -1,6 +1,6 @@
 import React from 'react';
 import PostsHolder from './components/PostsHolder';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 
 
 export default class App extends React.Component {
@@ -12,7 +12,14 @@ export default class App extends React.Component {
  render() {
     
 
-    return <PostsHolder />
+    return <Router>
+    <Switch>
+        <Route path="/posts">
+            <PostsHolder />
+        </Route>
+        <Redirect to="/posts" />
+      </Switch>
+   </Router>
 
    
  }

@@ -42,7 +42,7 @@ export default class Posts extends React.Component {
                             {this.state.post ? <Post post={this.state.post} editable={false}/> : ''}
                         </div>
                                 
-                        <Link to="/add">Add</Link>
+                        <Link to="/posts/add">Add</Link>
 
                     </div>;
         }

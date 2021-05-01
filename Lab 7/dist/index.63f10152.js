@@ -740,9 +740,9 @@ if ("development" !== "production") {
   })();
 }
 
-},{}],"48eu7":[function(require,module,exports) {
+},{}],"3L2qK":[function(require,module,exports) {
 var HMR_HOST = null;
-var HMR_PORT = 54346;
+var HMR_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d751713988987e9331980363e24189ce";
 module.bundle.HMR_BUNDLE_ID = "ca6253830bf612b84ef417e863f10152";
@@ -26273,7 +26273,7 @@ try {
   var _reactDefault = _parcelHelpers.interopDefault(_react);
   var _componentsPostsHolder = require('./components/PostsHolder');
   var _componentsPostsHolderDefault = _parcelHelpers.interopDefault(_componentsPostsHolder);
-  require('react-router-dom');
+  var _reactRouterDom = require('react-router-dom');
   var _jsxFileName = "C:\\Users\\Arosh\\Desktop\\Lab 7\\App.jsx";
   class App extends _reactDefault.default.Component {
     constructor(props) {
@@ -26281,14 +26281,44 @@ try {
     }
     render() {
       return (
-        /*#__PURE__*/_reactDefault.default.createElement(_componentsPostsHolderDefault.default, {
+        /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.BrowserRouter, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 15,
             columnNumber: 12
           }
-        })
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Switch, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 16,
+            columnNumber: 5
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
+          path: "/posts",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 17,
+            columnNumber: 9
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_componentsPostsHolderDefault.default, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 18,
+            columnNumber: 13
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Redirect, {
+          to: "/posts",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 20,
+            columnNumber: 9
+          }
+        })))
       );
     }
   }
@@ -26331,13 +26361,17 @@ try {
       };
     }
     addNewPost({name, description}) {
-      const post = {
-        id: this.state.posts.length + 1,
+      /*const post = {
+      id: this.state.posts.length + 1,
+      name,
+      description
+      }
+      
+      this.setState({posts: [...this.state.posts,post]});*/
+      this.push({
+        id: this.length + 1,
         name,
         description
-      };
-      this.setState({
-        posts: [...this.state.posts, post]
       });
     }
     render() {
@@ -26351,61 +26385,47 @@ try {
         description: 'Server side JS'
       }];
       return (
-        /*#__PURE__*/_reactDefault.default.createElement(_reactDefault.default.Fragment, {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 55,
-            columnNumber: 13
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.BrowserRouter, {
+        /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Switch, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 56,
-            columnNumber: 17
+            columnNumber: 12
           }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Switch, {
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
+          exact: true,
+          path: "/posts",
           __self: this,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 57,
-            columnNumber: 21
+            columnNumber: 25
           }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
-          exact: true,
-          path: "/",
+        }, /*#__PURE__*/_reactDefault.default.createElement(_PostsDefault.default, {
+          posts: posts,
           __self: this,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 58,
-            columnNumber: 25
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_PostsDefault.default, {
-          posts: this.state.posts,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 59,
             columnNumber: 29
           }
         })), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
-          path: "/add",
+          path: "/posts/add",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 60,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_AddPostDefault.default, {
+          save: this.addNewPost.bind(posts),
           __self: this,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 61,
-            columnNumber: 25
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_AddPostDefault.default, {
-          save: this.addNewPost.bind(this),
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 62,
             columnNumber: 29
           }
-        })))))
+        })))
       );
     }
   }
@@ -26541,7 +26561,7 @@ try {
             columnNumber: 48
           }
         }) : ''), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Link, {
-          to: "/add",
+          to: "/posts/add",
           __self: this,
           __source: {
             fileName: _jsxFileName,
@@ -26559,7 +26579,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","./PostListItem":"32OzN","./Post":"7CgcQ","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","react-router-dom":"1PMSK"}],"32OzN":[function(require,module,exports) {
+},{"react":"3b2NM","./PostListItem":"32OzN","./Post":"7CgcQ","react-router-dom":"1PMSK","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"32OzN":[function(require,module,exports) {
 var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -30965,7 +30985,7 @@ try {
             columnNumber: 21
           }
         }, "Save"))), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Link, {
-          to: "/",
+          to: "/posts",
           __self: this,
           __source: {
             fileName: _jsxFileName,
@@ -30983,6 +31003,6 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","react-router-dom":"1PMSK"}]},["1j6wU","48eu7","5Qvcc"], "5Qvcc", "parcelRequire46fc")
+},{"react":"3b2NM","react-router-dom":"1PMSK","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}]},["1j6wU","3L2qK","5Qvcc"], "5Qvcc", "parcelRequire46fc")
 
 //# sourceMappingURL=index.63f10152.js.map

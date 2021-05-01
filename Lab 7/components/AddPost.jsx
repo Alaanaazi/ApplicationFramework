@@ -44,7 +44,7 @@ export default class AddPost extends React.Component {
                     </div>
                 </form>
 
-                <Link to="/">Posts</Link>
+                <Link to="/posts">Posts</Link>
             </div>;
     }
    }

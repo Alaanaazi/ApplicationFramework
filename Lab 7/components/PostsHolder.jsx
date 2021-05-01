@@ -1,6 +1,6 @@
 import React from 'react';
 import Posts from './Posts';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 
 import AddPost from './AddPost';
 
@@ -25,14 +25,15 @@ export default class PostsHolder extends React.Component {
     }
 
     
-    addNewPost ({name, description}) {
-        const post = {
+    addNewPost({name, description}) {
+        /* const post = {
             id: this.state.posts.length + 1,
             name,
             description
         }
 
-        this.setState({posts: [...this.state.posts,post]});
+        this.setState({posts: [...this.state.posts,post]}); */
+        this.push({id: this.length + 1, name, description});
     }
     
 
@@ -52,21 +53,16 @@ export default class PostsHolder extends React.Component {
            ];
            
            
-    return (<React.Fragment>
-                <Router>
-                    <Switch>
-                        <Route exact path="/">
-                            <Posts posts={this.state.posts} />
+    return <Switch>
+                        <Route exact path="/posts">
+                            <Posts posts={posts} />
                         </Route>
-                        <Route path="/add">
-                            <AddPost save = {this.addNewPost.bind(this)}/>
+                        <Route path="/posts/add">
+                            <AddPost save = {this.addNewPost.bind(posts)}/>
                         </Route>
                     </Switch>
-                </Router>
-
-                
-            </React.Fragment>
-    )
+        
     }
    }
    
+
